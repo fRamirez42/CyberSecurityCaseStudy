@@ -11,6 +11,7 @@ import javax.crypto.Mac;
 import javax.crypto.SecretKey;
 
 public class HMAC256 {
+  
   private HMAC256(){
   }
   //Generate Random Key
