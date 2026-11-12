@@ -49,6 +49,16 @@ public class HMAC256 {
     }
   }
 
-  
+  //Convert HMAC to hexadecimal
+  public static  String computeHMCAhex(Path file, SecretKey key)throws IOException {
+    return HexFormat.of().formatHex(computeHMAC(file, key));
+  }
+
+  //Verify file integrity and authenticity
+  public static boolean verifyHMAC(Path file, SecretKey key, byte[] expectedHmac) throws IOException {
+    byte[] actualHmac = computeHMAC(file, key);
+
+    return MessageDigest.isEqual(actualHmac, expectedHmac);
+  }
 
 }
